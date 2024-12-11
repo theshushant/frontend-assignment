@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import './main_screen.css';
 import FundProjects from "../../../models/fund_project";
 import AppLoader from "../../components/loader";
-import App_button from "../../components/app_button";
+import AppButton from "../../components/app_button";
 
 const MainScreen = () => {
     const [projects, setProjects] = useState([]);
@@ -54,14 +54,14 @@ const MainScreen = () => {
                             <tr key={project.sNo}>
                                 <td>{project.sNo + 1}</td>
                                 <td>{project.getFormattedPercentage()}</td>
-                                <td>${project.getFormattedPledgeAmount()}</td>
+                                <td>{project.getFormattedPledgeAmount()}</td>
                             </tr>
                         ))}
                         </tbody>
                     </table>
 
                     <div className="pagination">
-                        <App_button
+                        <AppButton
                             text="Previous"
                             onClick={() => paginate(currentPage - 1)}
                             disabled={currentPage === 1}
@@ -69,7 +69,7 @@ const MainScreen = () => {
                             testId="previous-button"
                         />
                         <span aria-live="polite">Page {currentPage}</span>
-                        <App_button
+                        <AppButton
                             text="Next"
                             onClick={() => paginate(currentPage + 1)}
                             disabled={currentPage * projectsPerPage >= projects.length}
