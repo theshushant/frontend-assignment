@@ -1,0 +1,229 @@
+/* General Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;  /* Elegant, modern font */
+    background-color: #f5f7fa;  /* Light grayish background */
+    color: #333;  /* Dark text for contrast */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    cursor: default; /* Default cursor for the body */
+}
+
+/* Main Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    background-color: #ffffff;
+    border-radius: 12px;  /* Rounded corners for the container */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    padding: 40px;
+    overflow: hidden;
+}
+
+/* Heading Style */
+h1 {
+    font-size: 2.8em;
+    text-align: center;
+    color: #4CAF50;  /* Vibrant green color for headings */
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-transform: uppercase;  /* Uppercase for extra emphasis */
+    letter-spacing: 1px;
+}
+
+/* Loader Styles */
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Set a fixed height for the loader area */
+    position: relative;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;  /* Light gray background */
+    border-top: 4px solid #007bff;  /* Blue color for the spinner */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite; /* Animation for rotating the spinner */
+}
+
+/* Keyframe for rotating the spinner */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 30px;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 18px;
+    text-align: left;
+    font-size: 16px;
+    border-bottom: 1px solid #e0e0e0;  /* Light border between rows */
+}
+
+table th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+table td {
+    background-color: #f9f9f9;
+    color: #555;
+    transition: transform 0.3s ease;  /* Smooth transition when hovering over a cell */
+}
+
+/* Table Rows Zoom Effect */
+table tr {
+    transition: transform 0.3s ease;  /* Smooth transition when hovering over a row */
+}
+
+/* Zoom In on Hover for Entire Row */
+table tr:hover td {
+    transform: scale(1.05);  /* Zoom-in effect for the entire row */
+    cursor: pointer;
+    background-color: #f1f1f1;  /* Light gray background on hover */
+}
+
+/* Alternating Row Colors */
+table tr:nth-child(odd) {
+    background-color: #fafafa;  /* Slightly lighter background for odd rows */
+}
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.pagination button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer; /* Pointer cursor for buttons */
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 0 10px;
+}
+
+/* Hover Effect for Button */
+.pagination button:hover {
+    background-color: #0056b3; /* Darker blue when hovered */
+    transform: scale(1.1); /* Slightly enlarge the button */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Add shadow for extra effect */
+}
+
+/* Active State (when clicked) */
+.pagination button:active {
+    transform: scale(0.95); /* Shrink effect when button is clicked */
+    background-color: #004085;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Disabled Button */
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Staggered Slide-In Animation for Buttons */
+.pagination button {
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px); /* Start from the left */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* End at normal position */
+    }
+}
+
+.pagination span {
+    font-size: 18px;
+    margin: 0 15px;
+}
+
+/* Keyframe Animation for Fade-In and Slide-Up on Load */
+@keyframes fadeInSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at normal position */
+    }
+}
+
+/* Apply the animation to the table rows on load */
+table tr {
+    animation: fadeInSlideUp 0.8s ease-out forwards;  /* Apply animation */
+    opacity: 0; /* Initial state is invisible */
+    transform: translateY(20px); /* Initially placed slightly below */
+}
+
+/* Optional: stagger the animation for rows */
+table tr:nth-child(1) {
+    animation-delay: 0s;
+}
+table tr:nth-child(2) {
+    animation-delay: 0.1s;
+}
+table tr:nth-child(3) {
+    animation-delay: 0.2s;
+}
+table tr:nth-child(4) {
+    animation-delay: 0.3s;
+}
+table tr:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+
+    table th, table td {
+        font-size: 14px;
+        padding: 14px;
+    }
+
+    .pagination button {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+
+    .pagination span {
+        font-size: 16px;
+    }
+}
